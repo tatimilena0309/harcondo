@@ -20,9 +20,8 @@ public class Controlador_Sensor {
         return experto.getModelosSensores();
     }
 
-    public Sensor Alta_Sensor(int numero, String numero_serie, String Modelo){
-        return null;
-                //experto.Alta_Sensor(numero, numero_serie, modelo);
+    public Sensor Alta_Sensor(int numero, String numero_serie, String modelo){
+        return experto.Alta_Sensor(numero, numero_serie, modelo);
     }
     
 }
