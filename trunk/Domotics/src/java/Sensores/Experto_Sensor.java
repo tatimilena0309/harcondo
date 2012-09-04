@@ -18,7 +18,7 @@ import persistencia.Fachada_Persistencia;
  * @author LEO
  */
 public class Experto_Sensor {
-    
+
     public List<Modelo_Sensor> getModelosSensores(){
         List<Modelo_Sensor> modelos = new ArrayList();
         try{
@@ -49,21 +49,22 @@ public class Experto_Sensor {
 
             modelos.add(modelo);
             }
-        
+
         }
         catch(Exception e){
         // falta poner accion
-            
-            
-            
+
+
+
         }
-        
-        
+
+
         return modelos;
     }
 
     /**
-     * Este metodo da de alta a un sensor
+     * Este metodo da de alta a un sensor. Si se da de alta de forma correcta
+     * devuelve el nuevo sensor creado.
      * @param numero
      * @param numero_serie
      * @param Modelo
@@ -71,13 +72,20 @@ public class Experto_Sensor {
      */
   public Sensor Alta_Sensor(int numero, String numero_serie, String Modelo){
 
+        try{
         Sensor sensor = new Sensor();
         sensor.setFecha_alta(new Date());
         sensor.setFecha_ultima_modificacion(new Date());
         sensor.setNumero(numero);
         sensor.setNumero_serie(numero_serie);
+        sensor.setModelo_sensor(this.getModelo_Sensor(Modelo));
 
+        return sensor;
+      } catch (Exception e){
+        // poner accion
         return null;
+      }
+
     }
   /**
    * Este metodo devuelve null si no encuentra Modelo_Sensor con el nombre indicado
@@ -85,16 +93,20 @@ public class Experto_Sensor {
    * @param nombre
    * @return
    */
-  public Modelo_Sensor getModelo_Sensor(String nombre){
-       //Buscamos el modelo de sensor con el nombre indicado
+  public Modelo_Sensor getModelo_Sensor(String modelo){
+     try{
+      //Buscamos el modelo de sensor con el nombre indicado
         EntityManager em = Fachada_Persistencia.getInstance().getEntityManager();
-        Query q = (Query) em.createQuery("SELECT m FROM Modelo_Sensor m where m.nombre=:nombre");
-        q.setParameter("nombre", nombre);
-        Modelo_Sensor modelo = (Modelo_Sensor) q.getSingleResult(); 
+        Query q = (Query) em.createQuery("SELECT m FROM Modelo_Sensor m where m.modelo=:modelo");
+        q.setParameter("modelo", modelo);
+        Modelo_Sensor modelo = (Modelo_Sensor) q.getSingleResult();
 
-
-      
-        return null;
+        return modelo;
+        }
+     catch(Exception e){
+         // Poner Accion
+         return null;
+     }
   }
-    
+
 }
