@@ -4,6 +4,7 @@
  */
 package Fabricas;
 
+import Ambientes.Experto_Ambiente;
 import Experto.Experto;
 import Sensores.Experto_Sensor;
 
@@ -24,13 +25,15 @@ public class Fabrica_Expertos {
 
     public enum expertos {
 
-        Sensores
+        Sensores, Ambiente
     }
 
     public Experto getExperto(expertos expertoNombre) {
         switch (expertoNombre) {
             case Sensores:
                 return new Experto_Sensor();
+            case Ambiente:
+                return new Experto_Ambiente();
             default:
                 return null;
 

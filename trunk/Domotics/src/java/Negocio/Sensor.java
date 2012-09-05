@@ -34,6 +34,8 @@ public class Sensor extends ObjetoPersistente implements Serializable {
     
     @ManyToOne
     private Modelo_Sensor modelo_sensor;
+    
+    
 
     public Estado_Sensor getEstado_sensor() {
         return estado_sensor;
