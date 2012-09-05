@@ -14,6 +14,7 @@
 
     Controlador_Sensor controlador = new Controlador_Sensor();
     List<Modelo_Sensor> modelos = controlador.getModelosSensores();
+    // declaro variable modelo para usar en el select
     Modelo_Sensor modelo;
    
 
