@@ -7,13 +7,14 @@ package Negocio;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import persistencia.ObjetoPersistente;
 
 /**
  *
  * @author LEO
  */
 @Entity
-public class Domicilio implements Serializable {
+public class Domicilio extends ObjetoPersistente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

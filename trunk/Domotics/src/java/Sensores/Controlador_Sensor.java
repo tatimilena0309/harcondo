@@ -4,6 +4,7 @@
  */
 package Sensores;
 
+import Fabricas.Fabrica_Expertos;
 import Negocio.Modelo_Sensor;
 import Negocio.Sensor;
 import java.util.List;
@@ -14,7 +15,16 @@ import java.util.List;
  */
 public class Controlador_Sensor {
     
-    Experto_Sensor experto = new Experto_Sensor();
+    
+    
+    Experto_Sensor experto;
+
+    public Controlador_Sensor() {
+        
+        experto = (Experto_Sensor) Fabrica_Expertos.getInstancia().getExperto(Fabrica_Expertos.expertos.Sensores);
+    }
+    
+    
     
     public List<Modelo_Sensor> getModelosSensores(){
         return experto.getModelosSensores();

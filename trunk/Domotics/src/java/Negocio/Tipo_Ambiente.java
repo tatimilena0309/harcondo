@@ -9,13 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import persistencia.ObjetoPersistente;
 
 /**
  *
  * @author LEO
  */
 @Entity
-public class Tipo_Ambiente implements Serializable {
+public class Tipo_Ambiente extends ObjetoPersistente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
