@@ -95,13 +95,14 @@ public class Experto_Sensor {
    */
   public Modelo_Sensor getModelo_Sensor(String modelo){
      try{
+
       //Buscamos el modelo de sensor con el nombre indicado
         EntityManager em = Fachada_Persistencia.getInstance().getEntityManager();
         Query q = (Query) em.createQuery("SELECT m FROM Modelo_Sensor m where m.modelo=:modelo");
         q.setParameter("modelo", modelo);
-        Modelo_Sensor modelo = (Modelo_Sensor) q.getSingleResult();
+        Modelo_Sensor mod = (Modelo_Sensor) q.getSingleResult();
 
-        return modelo;
+        return mod;
         }
      catch(Exception e){
          // Poner Accion

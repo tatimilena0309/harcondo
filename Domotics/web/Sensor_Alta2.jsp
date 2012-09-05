@@ -30,7 +30,7 @@
         <h1>Alta Sensor</h1>
          <p>
 <%
- if(sensor.equals(null)){
+ if(!sensor.equals(null)){
 %>
 
             El sensor número <%=sensor.getNumero()%> fue dado de alta con exito!

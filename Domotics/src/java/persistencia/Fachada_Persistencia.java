@@ -31,4 +31,23 @@ public class Fachada_Persistencia {
         EntityManager em = factory.createEntityManager();
         return em;
     }
+
+    /**
+     * Este metodo persiste o actualiza el objeto pasado como parametro
+     * @param obj
+     * @throws Exception
+     */
+    public void guardar(ObjetoPersistente obj) throws Exception{
+        
+        EntityManager em = Fachada_Persistencia.getInstance().getEntityManager();
+        em.getTransaction().begin();
+        
+        if(obj.getId() != null){
+            em.merge(obj);
+        }else{
+            em.persist(obj);
+        }
+        em.flush();
+        em.getTransaction().commit();
+    }
 }

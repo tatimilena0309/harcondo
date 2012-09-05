@@ -23,7 +23,9 @@ public class Sensor implements Serializable {
     private Date fecha_alta;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha_ultima_modificacion;
+
     private int numero;
+
     private String numero_serie;
     
     @ManyToOne
