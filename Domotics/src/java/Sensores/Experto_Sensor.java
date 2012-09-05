@@ -4,6 +4,7 @@
  */
 package Sensores;
 
+import Experto.Experto;
 import Negocio.Modelo_Sensor;
 import Negocio.Sensor;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import persistencia.Fachada_Persistencia;
  *
  * @author LEO
  */
-public class Experto_Sensor {
+public class Experto_Sensor extends Experto{
 
     public List<Modelo_Sensor> getModelosSensores(){
         List<Modelo_Sensor> modelos = new ArrayList();

@@ -7,13 +7,14 @@ package Negocio;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+import persistencia.ObjetoPersistente;
 
 /**
  *
  * @author LEO
  */
 @Entity
-public class Sensor implements Serializable {
+public class Sensor extends ObjetoPersistente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
