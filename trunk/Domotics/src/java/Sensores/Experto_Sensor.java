@@ -13,6 +13,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import persistencia.Fachada_Persistencia;
+import persistencia.ObjetoPersistente;
 
 /**
  *
@@ -80,7 +81,9 @@ public class Experto_Sensor extends Experto{
         sensor.setNumero(numero);
         sensor.setNumero_serie(numero_serie);
         sensor.setModelo_sensor(this.getModelo_Sensor(Modelo));
-
+        
+        Fachada_Persistencia.getInstance().guardar(sensor);
+        
         return sensor;
       } catch (Exception e){
         // poner accion
@@ -104,6 +107,37 @@ public class Experto_Sensor extends Experto{
         Modelo_Sensor mod = (Modelo_Sensor) q.getSingleResult();
 
         return mod;
+        }
+     catch(Exception e){
+         // Poner Accion
+         return null;
+     }
+  }
+  
+  /**
+   * Devuelve un List con los objetos de la clase Sensor
+   * @return 
+   */
+  
+  public List<Sensor> getSensores(){
+  
+      //Buscamos los sensores de la base de datos y los devolvemos
+      return Fachada_Persistencia.getInstance().getListaObjetos("Sensor");
+    
+  
+  }
+  
+  
+  public Sensor getSensor(int numero){
+      try{
+
+      //Buscamos el sensor con el numero indicado
+        EntityManager em = Fachada_Persistencia.getInstance().getEntityManager();
+        Query q = (Query) em.createQuery("SELECT s FROM Sensor s where s.numero=:numero");
+        q.setParameter("numero", numero);
+        Sensor sensor = (Sensor) q.getSingleResult();
+
+        return sensor;
         }
      catch(Exception e){
          // Poner Accion

@@ -4,13 +4,22 @@
     Author     : Leo
 --%>
 
-<%@page import="Ambientes.Controlador_Ambiente"%>
+
+<%@page import="java.util.Iterator"%>
+<%@page import="Negocio.Sensor"%>
+<%@page import="java.util.List"%>
+<%@page import="Sensores.Controlador_Sensor"%>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
 
-    Controlador_Ambiente controlador = new Controlador_Ambiente();
+    Controlador_Sensor controlador2 = new Controlador_Sensor();
     
+    //traemos los sensores para luego mostrarlos
+    List<Sensor> Lista_Sensores = controlador2.getSensores();
+    Sensor sensor;
     
     
    
@@ -30,10 +39,10 @@
 <body>
 <h1>Alta Ambiente</h1>
 
-    <form>
+<form action="Ambiente_Alta2.jsp" method="POST">
 
 
-        <b>Ingresar Nombre de Ambiente:</b>
+        <b>Ingresar Nombre de Ambiente:</b><br>
 
 
 
@@ -49,17 +58,28 @@
         <b>Agregar Sensor Nro:</b>
 
         <select  id="sensor" name="sensor">
-        <option>009</option>
-        <option>008</option>
-        <option>003</option>
-        <option>002</option>
+<%
+        
+        Iterator iter = Lista_Sensores.iterator();
+        while(iter.hasNext()){
+
+        sensor = (Sensor) iter.next();
+
+        out.println("<option>");
+        out.println(sensor.getNumero());
+        out.println("</option>");
+    
+    }
+
+
+%> 
         </select>
 
         <br><br><br>
         <b>Agregar Mensaje de Ingreso</b> <br>
         <textarea cols="38" rows="5"  id="mensaje_ingreso" name="mensaje_ingreso"></textarea>
 
-
+        <input type="submit"/>
     </form>
 
 </body>
