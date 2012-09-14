@@ -5,6 +5,7 @@
 
 package persistencia;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -50,4 +51,19 @@ public class Fachada_Persistencia {
         em.flush();
         em.getTransaction().commit();
     }
+    
+   /**
+    * Este metodo devuelve un List con todas los objetos de la clase indicada en el parametro
+    * @param clase
+    * @return 
+    */
+    public List getListaObjetos(String clase){
+        
+       EntityManager em = Fachada_Persistencia.getInstance().getEntityManager();
+        
+        return em.createQuery("Select o FROM " + clase + " o").getResultList();
+        
+   
+   }
+    
 }

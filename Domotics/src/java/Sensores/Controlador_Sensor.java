@@ -4,6 +4,7 @@
  */
 package Sensores;
 
+import Controlador.Controlador;
 import Fabricas.Fabrica_Expertos;
 import Negocio.Modelo_Sensor;
 import Negocio.Sensor;
@@ -13,7 +14,7 @@ import java.util.List;
  *
  * @author LEO
  */
-public class Controlador_Sensor {
+public class Controlador_Sensor extends Controlador{
     
     
     
@@ -34,4 +35,16 @@ public class Controlador_Sensor {
         return experto.Alta_Sensor(numero, numero_serie, modelo);
     }
     
+   /**
+   * Devuelve un List<Sensor> con los objetos de la clase Sensor
+   * @return 
+   */
+     public List<Sensor> getSensores(){
+        return experto.getSensores();
+    }
+     
+     public Sensor getSensor(int numero){
+     
+         return experto.getSensor(numero);
+     }
 }
