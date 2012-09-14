@@ -21,6 +21,11 @@ import persistencia.ObjetoPersistente;
  */
 public class Experto_Sensor extends Experto{
 
+    /**
+     * Este metodo devuelve todos los Modelos de sensores cargados en la base de datos,
+     * Si no existe ninguno crea un modelo generico
+     * @return 
+     */
     public List<Modelo_Sensor> getModelosSensores(){
         List<Modelo_Sensor> modelos = new ArrayList();
         try{

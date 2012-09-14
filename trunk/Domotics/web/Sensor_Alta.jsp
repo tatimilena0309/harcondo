@@ -32,7 +32,7 @@
 
         <p>Número:<br><input type="text" name="numero" id="numero"></p>
         <p>Número de Serie:<br><input type="text" name="numero_serie" id="numero_serie"></p>
-        <p>
+        <p>Seleccione Modelo de Sensor<br>
             <select name="modelo">
 <%
 Iterator iter = modelos.iterator();

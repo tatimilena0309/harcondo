@@ -78,7 +78,7 @@
         <br><br><br>
         <b>Agregar Mensaje de Ingreso</b> <br>
         <textarea cols="38" rows="5"  id="mensaje_ingreso" name="mensaje_ingreso"></textarea>
-
+        <br>
         <input type="submit"/>
     </form>
 
