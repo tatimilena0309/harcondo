@@ -65,5 +65,21 @@ public class Fachada_Persistencia {
         
    
    }
+   
+    /**
+     * Este metodo devuelve el objeto de la clase indicada con el id indicado
+     * @param id
+     * @param clase
+     * @return
+     */
+    
+   public ObjetoPersistente getObjeto_ID(Long id, String clase){
+       
+       EntityManager em = Fachada_Persistencia.getInstance().getEntityManager();
+       return (ObjetoPersistente) em.createQuery("Select o FROM " + clase + " o where o.ID =" + id ).getSingleResult();
+     
+   }
+
+
     
 }

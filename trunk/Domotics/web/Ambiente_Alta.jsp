@@ -57,7 +57,7 @@
         <br><br><br>
         <b>Agregar Sensor Nro:</b>
 
-        <select  id="sensor" name="sensor">
+        <select  id="nro_sensor" name="nro_sensor">
 <%
         
         Iterator iter = Lista_Sensores.iterator();
@@ -79,6 +79,9 @@
         <b>Agregar Mensaje de Ingreso</b> <br>
         <textarea cols="38" rows="5"  id="mensaje_ingreso" name="mensaje_ingreso"></textarea>
         <br>
+
+        <p>Hora de Actualización:<br><input type="text" value="" name="actualizacion" id="actualizacion"/></p>
+
         <input type="submit"/>
     </form>
 

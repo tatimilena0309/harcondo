@@ -7,6 +7,7 @@ package Ambientes;
 import Controlador.Controlador;
 import Fabricas.Fabrica_Expertos;
 import Negocio.Ambiente;
+import java.util.List;
 
 /**
  *
@@ -22,10 +23,30 @@ public class Controlador_Ambiente extends Controlador{
         
     }
 
-     public Ambiente Alta_Ambiente(String nombre, String descripcion, String nro_sensor, String mensaje){
-         return experto.Alta_Ambiente(nombre, descripcion, nro_sensor, mensaje);
+     public Ambiente Alta_Ambiente(String nombre, String descripcion, String nro_sensor, String mensaje, String actualizacion){
+         return experto.Alta_Ambiente(nombre, descripcion, nro_sensor, mensaje, actualizacion);
      }
-    
-    
+   
+   /**
+   * Devuelve un List con los objetos de la clase Ambiente
+   * @return
+   */
+
+  public List<Ambiente> getAmbientes(){
+
+
+      return experto.getAmbientes();
+
+
+  }
+
+
+  public Ambiente getAmbiente(String nombre){
+     return experto.getAmbiente(nombre);
+  }
+
+  public boolean Modificar_Ambiente(Long id, String nombre, String descripcion, String nro_sensor, String mensaje, String hora_actualizacion){
+    return experto.Modificar_Ambiente(id, nombre, descripcion, nro_sensor, mensaje, hora_actualizacion);
+  }
     
 }
