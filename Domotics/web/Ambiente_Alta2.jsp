@@ -12,7 +12,7 @@
 
     Controlador_Ambiente controlador = new Controlador_Ambiente();
     
-    Ambiente ambiente = controlador.Alta_Ambiente(request.getParameter("nombre"), request.getParameter("descripcion"), request.getParameter("nro_sensor"), request.getParameter("mensaje"));
+    Ambiente ambiente = controlador.Alta_Ambiente(request.getParameter("ambiente"), request.getParameter("desc_ambiente"), request.getParameter("nro_sensor"), request.getParameter("mensaje_ingreso"), request.getParameter("actualizacion"));
 
 
 %>
@@ -26,10 +26,10 @@
         <h1>Alta Ambiente</h1>
          <p>
 <%
- if(!ambiente.equals(null)){
+ if(ambiente != null){
 %>
 
-            El Ambiente <%=ambiente.getNombre()%> fue dado de alta con exito!
+            El Ambiente "<%=ambiente.getNombre()%>" fue dado de alta con exito!
 <%
  }else{
 %>
