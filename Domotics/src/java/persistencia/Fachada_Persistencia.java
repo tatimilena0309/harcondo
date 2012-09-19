@@ -76,7 +76,7 @@ public class Fachada_Persistencia {
    public ObjetoPersistente getObjeto_ID(Long id, String clase){
        
        EntityManager em = Fachada_Persistencia.getInstance().getEntityManager();
-       return (ObjetoPersistente) em.createQuery("Select o FROM " + clase + " o where o.ID =" + id ).getSingleResult();
+       return (ObjetoPersistente) em.createQuery("Select o FROM " + clase + " o where o.id =" + id ).getSingleResult();
      
    }
 
