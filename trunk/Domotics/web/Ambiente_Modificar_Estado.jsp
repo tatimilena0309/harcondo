@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Ambiente_Modificar
-    Created on : 18-sep-2012, 15:48:05
+    Document   : Ambiente_Baja
+    Created on : 18-sep-2012, 21:18:12
     Author     : Leo
 --%>
 
@@ -15,10 +15,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Modificar Ambiente</title>
+        <title>Modificar Estado Ambiente</title>
     </head>
     <body>
-        <h1>Modificar Ambiente</h1>
+        <h1>Modificar Estado Ambiente</h1>
 
 <%
 
@@ -26,9 +26,9 @@ Controlador_Ambiente controlador = new Controlador_Ambiente();
 List<Ambiente> ambientes = controlador.getAmbientes();
 
 %>
-<p><h2>Seleccione Ambiente a Modificar</h2></p>
+<p><h2>Seleccione Ambiente a Modificar Estado</h2></p>
 
-<form action="Ambiente_Modificar2.jsp" method="POST">
+<form action="Ambiente_Modificar_Estado2.jsp" method="POST">
 
 <select name="ambiente" id="ambiente">
 <%

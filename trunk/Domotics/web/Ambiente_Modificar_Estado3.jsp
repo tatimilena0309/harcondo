@@ -1,6 +1,6 @@
-<%--
-    Document   : Ambiente_Modificar
-    Created on : 18-sep-2012, 15:48:05
+<%-- 
+    Document   : Ambiente_Modificar_Estado3
+    Created on : 18-sep-2012, 21:44:54
     Author     : Leo
 --%>
 
@@ -29,24 +29,19 @@ Controlador_Ambiente controlador = new Controlador_Ambiente();
 
 String id = request.getParameter("id");
 //Long id = Long.parseLong(request.getParameter("id"));
-String nombre = request.getParameter("nombre");
-String descripcion = request.getParameter("descripcion");
-String nro_sensor = request.getParameter("nro_sensor");
-String mensaje = request.getParameter("mensaje");
-String hora_actualizacion = request.getParameter("hora_actualizacion");
-
-if (controlador.Modificar_Ambiente(Long.parseLong(id), nombre, descripcion, nro_sensor, mensaje, hora_actualizacion)){
+String nombre_estado = request.getParameter("estado");
+if (controlador.Modificar_Estado_Ambiente(Long.parseLong(id), nombre_estado)){
 //if(controlador.Modificar_Ambiente(ambiente.getId(), request.getParameter("nombre"), request.getParameter("descripcion"), request.getParameter("nro_sensor"), request.getParameter("mensaje"), request.getParameter("hora_actualizacion"))){
 %>
 
 <br>
-<p><h2>Ambiente "<%=request.getParameter("nombre")%>" Modificado con Exito.</h2></p>
+<p><h2>Estado del Ambiente Modificado con Exito a "<%=nombre_estado%>".</h2></p>
 
 <%
 }else{
 %>
 
-<p><h2>Error al Modificar Ambiente "<%=request.getParameter("nombre")%>".</h2></p>
+<p><h2>Error al Modificar el Estado del Ambiente.</h2></p>
 
 <%
 }

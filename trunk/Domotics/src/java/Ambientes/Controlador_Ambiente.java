@@ -7,6 +7,7 @@ package Ambientes;
 import Controlador.Controlador;
 import Fabricas.Fabrica_Expertos;
 import Negocio.Ambiente;
+import Negocio.Estado_Ambiente;
 import java.util.List;
 
 /**
@@ -47,6 +48,14 @@ public class Controlador_Ambiente extends Controlador{
 
   public boolean Modificar_Ambiente(Long id, String nombre, String descripcion, String nro_sensor, String mensaje, String hora_actualizacion){
     return experto.Modificar_Ambiente(id, nombre, descripcion, nro_sensor, mensaje, hora_actualizacion);
+  }
+
+  public List<Estado_Ambiente> getEstados_Ambiente(){
+    return experto.getEstados_Ambiente();
+  }
+
+  public boolean Modificar_Estado_Ambiente(Long id, String nombre_estado){
+    return experto.Modificar_Estado_Ambiente(id, nombre_estado);
   }
     
 }

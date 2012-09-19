@@ -36,10 +36,9 @@ Sensor sensor;
 %>
 <p><h2>Ambiente a Modificar  "<%=ambiente.getNombre()%>"</h2></p>
 
-<form action="Ambiente_Modificar3.jsp?nombre_original='<%=ambiente.getNombre()%>'" method="POST">
+<form action="Ambiente_Modificar3.jsp?id=<%=ambiente.getId()%>" method="POST">
 
-
-<p>Nombre<br><input type="text" value="<%=ambiente.getNombre()%>" name="nombre" id="nombre"/></p>
+    <p>Nombre<br><input type="text" value="<%=ambiente.getNombre()%>" name="nombre" id="nombre"/></p>
 <p>Descripción<br><input type="text" value="<%=ambiente.getDescripcion()%>" name="descripcion" id="descripcion"/></p>
 <p>Sensor<br>
     <select name="nro_sensor" id="nro_sensor">
@@ -62,7 +61,9 @@ Sensor sensor;
     </select>
 </p>
 <p>Mensaje<br><textarea cols="38" rows="5"  id="mensaje" name="mensaje"><%=ambiente.getMensaje().getDescripcion()%></textarea></p>
-<p>Hora de Actualización:<br><input type="text" value="<%=ambiente.getHora_actualizacion()%>" name="mensaje" id="mensaje"/></p>
+<p>Hora de Actualización:<br><input type="text" value="<%=ambiente.getHora_actualizacion()%>" name="hora_actualizacion" id="hora_actualizacion"/></p>
+<hr>
+<p>Estado Ambiente<br><%=ambiente.getEstado_ambiente().getNombre()%></p>
 <hr>
 <p>Fecha Alta:<br><%=ambiente.getFecha_alta()%></p>
 
