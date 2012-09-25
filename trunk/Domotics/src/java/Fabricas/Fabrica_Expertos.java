@@ -6,6 +6,7 @@ package Fabricas;
 
 import Ambientes.Experto_Ambiente;
 import Experto.Experto;
+import Mensajes.Experto_Mensajes;
 import Sensores.Experto_Sensor;
 
 /**
@@ -25,7 +26,7 @@ public class Fabrica_Expertos {
 
     public enum expertos {
 
-        Sensores, Ambiente
+        Sensores, Ambiente, Mensajes
     }
 
     public Experto getExperto(expertos expertoNombre) {
@@ -34,6 +35,8 @@ public class Fabrica_Expertos {
                 return new Experto_Sensor();
             case Ambiente:
                 return new Experto_Ambiente();
+            case Mensajes:
+                return new Experto_Mensajes();
             default:
                 return null;
 

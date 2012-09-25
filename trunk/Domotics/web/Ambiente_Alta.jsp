@@ -81,8 +81,16 @@
 
         <br><br><br>
         <b>Agregar Mensaje de Ingreso</b> <br>
-        <textarea cols="40" rows="5"  id="mensaje_ingreso" name="mensaje_ingreso"></textarea>
+        <!---- <textarea cols="40" rows="5"  id="mensaje_ingreso" name="mensaje_ingreso"></textarea> -->
+            <form action="subir_Archivo2.jsp" enctype="MULTIPART/FORM-DATA" method="post">
+                <input type="file" name="file" /><br/>
+            </form>
         <br><br>
+        
+        
+        
+        
+        
 
         <p><b>Hora de Actualización:</b><br><input type="text" value="" name="actualizacion" id="actualizacion"/></p>
         <br>
