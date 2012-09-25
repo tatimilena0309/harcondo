@@ -4,6 +4,16 @@
     Author     : LEO
 --%>
 
+
+
+<%@include file="cabecera.jsp" %>
+<div class="clearfix grpelem" id="pu1676-6"><!-- group -->
+    
+    <div class="grpelem" id="u1268" ><!-- content -->
+        <div class="domotics">
+ <h1><b>Alta Ambiente<b></h1>
+        
+
 <%@page import="Negocio.Ambiente"%>
 <%@page import="Ambientes.Controlador_Ambiente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,13 +27,6 @@
 
 %>
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Alta Ambiente</title>
-    </head>
-    <body>
-        <h1>Alta Ambiente</h1>
          <p>
 <%
  if(ambiente != null){
@@ -39,5 +42,8 @@
 %>
         </p>
 
-   </body>
-</html>
+        </div>
+        </div>
+</div>
+
+<%@include file="pie.jsp" %>

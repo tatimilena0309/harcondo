@@ -4,6 +4,13 @@
     Author     : Leo
 --%>
 
+
+<%@include file="cabecera.jsp" %>
+<div class="clearfix grpelem" id="pu1676-6"><!-- group -->
+    <div class="grpelem" id="u1268" ><!-- content -->
+ <h1><b>Alta Sensor<b></h1>
+             <div class="domotics">
+
 <%@page import="Negocio.Sensor"%>
 <%@page import="Sensores.Controlador_Sensor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,13 +28,7 @@
 
 %>
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Alta Sensor</title>
-    </head>
-    <body>
-        <h1>Alta Sensor</h1>
+
          <p>
 <%
  if(!sensor.equals(null)){
@@ -42,6 +43,8 @@
 }
 %>
         </p>
+  </div>
+        </div>
+</div>
 
-   </body>
-</html>
+<%@include file="pie.jsp" %>

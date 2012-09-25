@@ -173,6 +173,16 @@ a.nontext /* used to override default properties of 'a' tag */
 	display: inline;
 	float: left;
 }
+.domotics{
+    background-color: black; 
+    opacity: 0.81; 
+    padding: 20px; 
+    width: 300px; 
+    line-height: 1.5;  
+    color: white;
+    
+    
+}
 
 .clearfix:after /* force a container to fit around floated items */
 {

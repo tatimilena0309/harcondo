@@ -6,6 +6,7 @@ package Sensores;
 
 import Controlador.Controlador;
 import Fabricas.Fabrica_Expertos;
+import Negocio.Estado_Sensor;
 import Negocio.Modelo_Sensor;
 import Negocio.Sensor;
 import java.util.List;
@@ -43,8 +44,26 @@ public class Controlador_Sensor extends Controlador{
         return experto.getSensores();
     }
      
+   /**
+   * Devuelve un List<Sensor> con los objetos de la clase Sensor y estado "Sin-Asignar"
+   * @return 
+   */
+     public List<Sensor> getSensoresDisponibles(){
+        return experto.getSensoresDisponibles();
+    }
+     
      public Sensor getSensor(int numero){
      
          return experto.getSensor(numero);
+     }
+     
+     public boolean Modificar_Sensor(String numero, String modelo_sensor, String nro_serie){
+         return experto.Modificar_Sensor(numero, modelo_sensor, nro_serie);
+     }
+     public Estado_Sensor getEstado_Sensor(String estado){
+         return experto.getEstado_Sensor(estado);
+     }
+     public boolean Modificar_Estado_Sensor(String numero, String estado){
+          return experto.Modificar_Estado_Sensor(numero, estado);
      }
 }
