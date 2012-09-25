@@ -5,6 +5,7 @@
 package Ambientes;
 
 import Experto.Experto;
+import Mensajes.Controlador_Mensajes;
 import Negocio.Ambiente;
 import Negocio.Estado_Ambiente;
 import Negocio.Mensaje;
@@ -62,11 +63,10 @@ public class Experto_Ambiente extends Experto{
         ambiente.setFecha_ultima_modificacion(new Date());
         ambiente.setHora_ultimo_acceso(new Date());
 
-        //Falta setear el mensaje
-        Mensaje mensj = new Mensaje();
-            //Al nombre del mensaje le llamamos el mismo nombre del ambiente
-            mensj.setNombre(nombre);
-            mensj.setDescripcion(mensaje);
+        //Seteamos el mensaje
+        Controlador_Mensajes controlador_mens = new Controlador_Mensajes();
+        //Al nombre del mensaje le llamamos el mismo nombre del ambiente y tipo sonido, en mensaje ponemos el url del archivo
+        Mensaje mensj = controlador_mens.crearMensaje(nombre, mensaje, "Sonido");
         ambiente.setMensaje(mensj);
 
         //Seteamos el estado

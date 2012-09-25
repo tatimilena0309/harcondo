@@ -1,24 +1,8 @@
-<%-- 
-    Document   : Ambiente_Alta2
-    Created on : 13/09/2012, 21:35:34
+<%--    
+    Document   : subir_Archivo2
+    Created on : 25/09/2012, 12:20:00
     Author     : LEO
 --%>
-
-
-
-<%@include file="cabecera.jsp" %>
-<div class="clearfix grpelem" id="pu1676-6"><!-- group -->
-    
-    <div class="grpelem" id="u1268" ><!-- content -->
-        <div class="domotics">
- <h1><b>Alta Ambiente<b></h1>
-        
-
-<%@page import="Negocio.Ambiente"%>
-<%@page import="Ambientes.Controlador_Ambiente"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-
 
 
 <%@ page import="java.util.*" %>
@@ -37,12 +21,6 @@
 
 <%
 
-//seteamos variable para control de archivo
-boolean control_upload = true;
-
-//variable de ruta de mensaje
-String ruta_mensaje = null;
-try{
         /*FileItemFactory es una interfaz para crear FileItem*/
 
         FileItemFactory file_factory = new DiskFileItemFactory();
@@ -74,56 +52,19 @@ try{
                 File archivo_server = new File("c:/tmp/"+item.getName());
 
                 /*y lo escribimos en el servido*/
-                
+
                 item.write(archivo_server);
 
                 out.print("Nombre --> " + item.getName() );
 
                 out.print("<br> Tipo --> " + item.getContentType());
 
-                out.print("<br> tamaÃ±o --> " + (item.getSize()/1240)+ "KB");
-                
+                out.print("<br> tamaño --> " + (item.getSize()/1240)+ "KB");
+
                 out.print("<br>");
-                ruta_mensaje = archivo_server.getAbsolutePath();
+
             }
 
         }
-}
-catch(Exception ex){
-    out.println("Error al cargar el archivo:  "+ex.getMessage());
-    control_upload = false;
-}
-%>
-
-
-
-
-<%
-
-    Controlador_Ambiente controlador = new Controlador_Ambiente();
-    
-    Ambiente ambiente = controlador.Alta_Ambiente(request.getParameter("ambiente"), request.getParameter("desc_ambiente"), request.getParameter("nro_sensor"), ruta_mensaje, request.getParameter("actualizacion"));
-
 
 %>
-
-         <p>
-<%
- if(ambiente != null){
-%>
-
-            El Ambiente "<%=ambiente.getNombre()%>" fue dado de alta con exito!
-<%
- }else{
-%>
-            Falla en el alta!
-<%
-}
-%>
-        </p>
-
-        </div>
-        </div>
-</div>
-
-<%@include file="pie.jsp" %>
