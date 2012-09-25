@@ -1,8 +1,9 @@
 <%-- 
-    Document   : index
-    Created on : 03/09/2012, 18:03:33
+    Document   : Modo_Sistema
+    Created on : 25/09/2012, 02:49:11
     Author     : LEO
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,8 +13,11 @@
 
 <div class="clearfix grpelem" id="pu1676-6"><!-- group -->
    <div class="clearfix grpelem" id="u1676-6"><!-- content -->
-     <p>Bienvenido a Domotic's.</p>
-     <p>Casa inteligente para no videntes</p>
+     <p>Sección en Desarrollo.</p>
+     <BR>
+     <img src="images/stop.jpg">
+     <BR>
+     <p>Disculpe las Molestias.</p>
     </div>
 </div>
 

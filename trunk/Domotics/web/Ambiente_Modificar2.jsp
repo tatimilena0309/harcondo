@@ -4,6 +4,14 @@
     Author     : Leo
 --%>
 
+<%@include file="cabecera.jsp" %>
+<div class="clearfix grpelem" id="pu1676-6"><!-- group -->
+    <div class="grpelem" id="u1268" ><!-- content -->
+ <h1><b>Modificar Ambiente<b></h1>
+        <div class="domotics">
+
+
+
 <%@page import="Sensores.Controlador_Sensor"%>
 <%@page import="Negocio.Sensor"%>
 <%@page import="java.util.Iterator"%>
@@ -14,13 +22,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Modificar Ambiente</title>
-    </head>
-    <body>
-        <h1>Modificar Ambiente</h1>
 
 <%
 
@@ -34,7 +35,7 @@ List<Sensor> Lista_Sensores = controlador2.getSensores();
 Sensor sensor;
 
 %>
-<p><h2>Ambiente a Modificar  "<%=ambiente.getNombre()%>"</h2></p>
+
 
 <form action="Ambiente_Modificar3.jsp?id=<%=ambiente.getId()%>" method="POST">
 
@@ -73,6 +74,7 @@ Sensor sensor;
 
 <input type="submit">
 
-</form>
-    </body>
-</html>
+        </div>
+        </div>
+</div>
+<%@include file="pie.jsp"%>

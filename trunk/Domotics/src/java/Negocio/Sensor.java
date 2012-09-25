@@ -25,6 +25,7 @@ public class Sensor extends ObjetoPersistente implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha_ultima_modificacion;
 
+
     private int numero;
 
     private String numero_serie;

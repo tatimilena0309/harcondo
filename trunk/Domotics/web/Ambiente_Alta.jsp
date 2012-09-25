@@ -4,21 +4,26 @@
     Author     : Leo
 --%>
 
-
+<%@include file="cabecera.jsp" %>
+<div class="clearfix grpelem" id="pu1676-6"><!-- group -->
+    <div class="grpelem" id="u1268" ><!-- content -->
+ <h1><b>Alta Ambiente<b></h1>
+             <div class="domotics">
+                 
 <%@page import="java.util.Iterator"%>
 <%@page import="Negocio.Sensor"%>
 <%@page import="java.util.List"%>
 <%@page import="Sensores.Controlador_Sensor"%>
 
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 
 <%
 
     Controlador_Sensor controlador2 = new Controlador_Sensor();
     
     //traemos los sensores para luego mostrarlos
-    List<Sensor> Lista_Sensores = controlador2.getSensores();
+    List<Sensor> Lista_Sensores = controlador2.getSensoresDisponibles();
     Sensor sensor;
     
     
@@ -31,13 +36,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Ambiente Alta</title>
-    </head>
-<body>
-<h1>Alta Ambiente</h1>
+
+
+
+
+
+
 
 <form action="Ambiente_Alta2.jsp" method="POST">
 
@@ -50,9 +54,9 @@
 
 
         <br><br><br>
-        <b>Ingresar DescripciÃ³n Ambiente:</b><br>
+        <b>Ingresar Descripción Ambiente:</b><br>
 
-        <textarea cols="38" rows="5"  id="desc_ambiente" name="desc_ambiente"></textarea>
+        <textarea cols="40" rows="5"  id="desc_ambiente" name="desc_ambiente"></textarea>
 
         <br><br><br>
         <b>Agregar Sensor Nro:</b>
@@ -77,13 +81,16 @@
 
         <br><br><br>
         <b>Agregar Mensaje de Ingreso</b> <br>
-        <textarea cols="38" rows="5"  id="mensaje_ingreso" name="mensaje_ingreso"></textarea>
+        <textarea cols="40" rows="5"  id="mensaje_ingreso" name="mensaje_ingreso"></textarea>
+        <br><br>
+
+        <p><b>Hora de Actualización:</b><br><input type="text" value="" name="actualizacion" id="actualizacion"/></p>
         <br>
-
-        <p>Hora de ActualizaciÃ³n:<br><input type="text" value="" name="actualizacion" id="actualizacion"/></p>
-
         <input type="submit"/>
     </form>
+        
+        </div>
+        </div>
+</div>
 
-</body>
-</html>
+<%@include file="pie.jsp" %>

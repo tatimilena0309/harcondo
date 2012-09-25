@@ -48,6 +48,12 @@ public class Experto_Ambiente extends Experto{
         Controlador_Sensor contr = new Controlador_Sensor();
         Sensor sensor = contr.getSensor(Integer.parseInt(nro_sensor));
         ambiente.setSensor(sensor);
+        
+        //Actualizamos el estado del Sensor a "Asignado"
+        Controlador_Sensor controlador =new Controlador_Sensor();
+        sensor.setEstado_sensor(controlador.getEstado_Sensor("Asignado"));
+        
+        
 
         // Hora de actualizacion en minutos
         ambiente.setHora_actualizacion(Integer.parseInt(actualizacion));
@@ -68,7 +74,8 @@ public class Experto_Ambiente extends Experto{
         ambiente.setEstado_ambiente(estado);
 
 
-
+        //Persistimos
+        Fachada_Persistencia.getInstance().guardar(sensor);
         Fachada_Persistencia.getInstance().guardar(mensj);
         Fachada_Persistencia.getInstance().guardar(ambiente);
         

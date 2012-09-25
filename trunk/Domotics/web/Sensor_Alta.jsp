@@ -4,6 +4,15 @@
     Author     : LEO
 --%>
 
+
+<%@include file="cabecera.jsp" %>
+<div class="clearfix grpelem" id="pu1676-6"><!-- group -->
+    <div class="grpelem" id="u1268" ><!-- content -->
+ <h1><b>Alta Sensor<b></h1>
+             <div class="domotics">
+
+                 
+                 
 <%@page import="java.util.Iterator"%>
 <%@page import="Negocio.Modelo_Sensor"%>
 <%@page import="java.util.List"%>
@@ -20,18 +29,13 @@
 
 %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Alta Sensor</title>
-    </head>
-    <body>
-        <h1>Alta Sensor</h1>
+
 
     <FORM NAME="Sensor_Alta"  method="POST" action="Sensor_Alta2.jsp">
 
         <p>Número:<br><input type="text" name="numero" id="numero"></p>
         <p>Número de Serie:<br><input type="text" name="numero_serie" id="numero_serie"></p>
+        <hr><br>
         <p>Seleccione Modelo de Sensor<br>
             <select name="modelo">
 <%
@@ -53,8 +57,15 @@ Iterator iter = modelos.iterator();
             </select>
             
         </p>
+        <hr>
+        <br>
         <input type="submit" value="Alta Sensor">
 
     </FORM>
-    </body>
-</html>
+   
+             
+             </div>
+        </div>
+</div>
+
+<%@include file="pie.jsp" %>
