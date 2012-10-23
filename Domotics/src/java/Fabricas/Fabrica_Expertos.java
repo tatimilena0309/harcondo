@@ -26,8 +26,7 @@ public class Fabrica_Expertos {
 
     public enum expertos {
 
-        Sensores, Ambiente, Mensajes
-    }
+        Sensores, Ambiente, Mensajes,Posicionamiento, Leer_Sensores}
 
     public Experto getExperto(expertos expertoNombre) {
         switch (expertoNombre) {
