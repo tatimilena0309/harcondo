@@ -98,12 +98,6 @@ class SendAuthentication {
         prop.setProperty("mail.smtp.auth", "true");
 
 
-        // prop.put("mail.smtp.host", host);
-        /*Esta línea es la que indica al API que debe autenticarse*/
-        //prop.put("mail.smtp.auth", "true");
-
-        /*Añadir esta linea si queremos ver una salida detallada del programa*/
-//prop.put("mail.debug", "true");
 
         try {
 
