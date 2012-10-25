@@ -26,7 +26,8 @@ public class Experto_Leer_Sensores extends Experto{
     
     
     public void leer_sensor(){ //este método tiene que recibir los datos del usb para saber
-                                // que sensor es el que se activa
+                                // que sensor es el que se activa y devuelve sensor y ambiente, y luego llamar al 
+                                //metodo confirmar para hacer uso del observador
         
         
     }
