@@ -4,6 +4,9 @@
  */
 package Adaptador_Sensores;
 
+import Negocio.Ambiente;
+import Negocio.Sensor;
+
 /**
  *
  * @author eduu
@@ -11,7 +14,7 @@ package Adaptador_Sensores;
 public interface Observador_Sensores {
 
     
-    public void notificarMovimiento();
+    public void notificarMovimiento(Ambiente ambiente, Sensor sensor);
     
     
     
