@@ -4,27 +4,27 @@
  */
 package EnvioCorreos;
 
-import javax.activation.*;
-import javax.mail.*;
-import javax.mail.internet.*;
+import Experto.Experto;
 import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
-public class EnviarMail {
-
-    public static void main(String[] args) {
-
-        SendAuthentication.Send();
-
-    }
-}
-
-class SendAuthentication {
-
-    public static void Send() {
+/**
+ *
+ * @author edu
+ */
+public class Experto_Correos extends Experto{
+    
+    
+    public static void Send(String origen, String destino, String Asunto, String mensaje) {
 
         String host = "smtp.gmail.com";//Suponiendo que el servidor SMTPsea la propia máquina
-        String from = "eduardomauriz@gmail.com";
-        String to = "eduardomauriz@gmail.com";
+        String from = origen;
+        String to = destino;
 
 
         System.out.println("Prueba para enviar un mail..." + new java.util.Date());
@@ -33,7 +33,7 @@ class SendAuthentication {
         prop.setProperty("mail.smtp.host", "smtp.gmail.com");
         prop.setProperty("mail.smtp.starttls.enable", "true");
         prop.setProperty("mail.smtp.port", "587");
-        prop.setProperty("mail.smtp.user", "eduardomauriz@gmail.com");
+        prop.setProperty("mail.smtp.user", origen);
         prop.setProperty("mail.smtp.auth", "true");
 
 
@@ -42,7 +42,7 @@ class SendAuthentication {
 
             SMTPAuthentication auth = new SMTPAuthentication();
             Session session = Session.getInstance(prop, auth);
-            Message msg = getMessage(session, from, to);
+            Message msg = getMessage(session, from, to, Asunto);
             System.out.println("Enviando ...");
 
 
@@ -58,14 +58,14 @@ class SendAuthentication {
 
     }
 
-    private static MimeMessage getMessage(Session session, String from, String to) {
+    private static MimeMessage getMessage(Session session, String from, String to, String asunto) {
 
         try {
 
             MimeMessage msg = new MimeMessage(session);
-            msg.setText("El mail desde java. Este mensaje a utilizado autenticacion en el servidor.");
+            msg.setText(asunto);
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            msg.setFrom(new InternetAddress(from, "JavaMail en accion"));
+            msg.setFrom(new InternetAddress(from, "Clarita"));
             return msg;
 
         } catch (java.io.UnsupportedEncodingException ex) {
@@ -79,32 +79,6 @@ class SendAuthentication {
             return null;
 
         }
-
-    }
-}
-
-class SMTPAuthentication extends javax.mail.Authenticator {
-
-    public PasswordAuthentication getPasswordAuthentication() {
-
-        String username = "eduardomauriz@gmail.com";
-
-        String password = "30298400";
-
-        return new PasswordAuthentication(username, password);
-
-    }
-}
-
-class ExceptionManager {
-
-    public static void ManageException(Exception e) {
-
-        System.out.println("Se ha producido una exception");
-
-        System.out.println(e.getMessage());
-
-        e.printStackTrace(System.out);
 
     }
 }

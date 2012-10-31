@@ -5,7 +5,9 @@
 package Fabricas;
 
 import Ambientes.Experto_Ambiente;
+import EnvioCorreos.Experto_Correos;
 import Experto.Experto;
+import Leer_Sensores.Experto_Leer_Sensores;
 import Mensajes.Experto_Mensajes;
 import Sensores.Experto_Sensor;
 
@@ -26,7 +28,7 @@ public class Fabrica_Expertos {
 
     public enum expertos {
 
-        Sensores, Ambiente, Mensajes,Posicionamiento, Leer_Sensores}
+        Sensores, Ambiente, Mensajes,Posicionamiento, Leer_Sensores, Correos}
 
     public Experto getExperto(expertos expertoNombre) {
         switch (expertoNombre) {
@@ -36,6 +38,10 @@ public class Fabrica_Expertos {
                 return new Experto_Ambiente();
             case Mensajes:
                 return new Experto_Mensajes();
+            case Leer_Sensores:
+                return new Experto_Leer_Sensores();
+            case Correos:
+                return new Experto_Correos();
             default:
                 return null;
 
