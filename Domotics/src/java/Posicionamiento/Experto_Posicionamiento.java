@@ -5,12 +5,76 @@
 package Posicionamiento;
 
 import Experto.Experto;
+import Negocio.Ambiente;
+import Negocio.Sensor;
+import Reproductor.Reproductor;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 /**
  *
  * @author eduu
  */
 public class Experto_Posicionamiento extends Experto{
+
+    public void notificarMovimiento(Ambiente ambiente, Sensor sensor) {
+        
+        Reproductor rep = new Reproductor();
+        if (ambiente.getNombre().equals("1")) {
+
+            try {
+                rep.loadFile("C:/Users/Edu/Desktop/ambiente1.mp3");
+            } catch (BasicPlayerException ex) {
+                Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rep.play();
+
+        }
+        if (ambiente.getNombre().equals("2")) {
+
+            try {
+                rep.loadFile("C:/Users/Edu/Desktop/ambiente2.mp3");
+            } catch (BasicPlayerException ex) {
+                Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rep.play();
+
+        }
+        if (ambiente.getNombre().equals("3")) {
+
+            try {
+                rep.loadFile("C:/Users/Edu/Desktop/ambiente3.mp3");
+            } catch (BasicPlayerException ex) {
+                Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rep.play();
+
+        }
+        if (ambiente.getNombre().equals("4")) {
+
+            try {
+                rep.loadFile("C:/Users/Edu/Desktop/ambiente4.mp3");
+            } catch (BasicPlayerException ex) {
+                Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rep.play();
+
+        }
+        if (ambiente.getNombre().equals("5")) {
+
+            try {
+                rep.loadFile("C:/Users/Edu/Desktop/ambiente5.mp3");
+            } catch (BasicPlayerException ex) {
+                Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rep.play();
+
+        }
+        
+        
+        
+    }
     
     
     

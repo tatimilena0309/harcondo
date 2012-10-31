@@ -37,7 +37,7 @@ public class Suscriptor_Sensores {
     
     public void notificar(Ambiente ambiente, Sensor sensor){
         
-        observador.notificarMovimiento();
+        observador.notificarMovimiento(ambiente, sensor);
         
     }
     
