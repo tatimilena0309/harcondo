@@ -15,8 +15,10 @@ import java.util.List;
  */
 public class Suscriptor_Sensores {
     
+    
     private static Suscriptor_Sensores instancia;
     List<Observador_Sensores> observadores_agregados = new ArrayList<Observador_Sensores>();
+    Observador_Sensores observador;
 
     public static Suscriptor_Sensores getInstancia() {
         if (instancia == null) {
@@ -35,6 +37,7 @@ public class Suscriptor_Sensores {
     
     public void notificar(Ambiente ambiente, Sensor sensor){
         
+        observador.notificarMovimiento();
         
     }
     

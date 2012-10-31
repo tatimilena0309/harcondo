@@ -9,6 +9,9 @@ package Adaptador_Sensores;
  * @author eduu
  */
 public interface Observador_Sensores {
+
+    
+    public void notificarMovimiento();
     
     
     
