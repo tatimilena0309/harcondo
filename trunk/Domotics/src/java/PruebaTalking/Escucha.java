@@ -12,6 +12,8 @@ import javax.speech.recognition.*;
 
 import java.io.FileReader;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,22 +55,48 @@ public class Escucha extends ResultAdapter {
             System.out.println();
 
             if (gst.equals("Musica")) {
-                
+
                 try {
-                rep.loadFile("D:/musica/bajofondo.mp3");
-            } catch (BasicPlayerException ex) {
-                Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+                    rep.loadFile("D:/musica/bajofondo.mp3");
+                } catch (BasicPlayerException ex) {
+                    Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                rep.play();
+
             }
-            rep.play();
-                             
-            }
-            
+
             if (gst.equals("Hora")) {
-                
-                // instalar la clase Calendar, y hacerlo, habria que poner la 
-                //otra libreria que es de texto a voz para reproducir cadena de caracteres
+
+                GregorianCalendar cal = new GregorianCalendar();
+                int hora, minutos, segundos;
+                hora = cal.get(Calendar.HOUR_OF_DAY);
+                minutos = cal.get(Calendar.MINUTE);
+                segundos = cal.get(Calendar.SECOND);
+                System.out.print("Fecha: " + cal.getTime() + "\n"
+                        + " son las " + hora + " horas y " + minutos + " minutos" + "\n"
+                        + "\n Día: " + cal.get(Calendar.DAY_OF_MONTH)
+                        + " Mes: " + (cal.get(Calendar.MONTH) + 1)
+                        + " Año: " + cal.get(Calendar.YEAR) + "\n"
+                        + " NOTA: Se le suma 1 al mes porque enero corresponde al mes 0\n");
+
+                //habria que poner la otra libreria que es de texto a voz para reproducir cadena de caracteres
             }
-            
+
+
+            if (gst.equals("Reproductor")) {//ejecuta el windows media player, habria que probar que reprodujera un play list
+
+                Process p = null;
+                try {
+                    /* directorio/ejecutable es el path del ejecutable y un nombre */
+                    p = Runtime.getRuntime().exec("C:/Archivos de programa/Windows Media Player/mplayer2.exe");
+                } catch (Exception e) {
+                    /* Se lanza una excepción si no se encuentra en ejecutable o el fichero no es ejecutable. */
+                }
+                
+                p.destroy();//se cierra el proceso, yo pondria que si la persona dice: terminar musica, se ponga el p.destroy()
+
+            }
+
             if (gst.equals("salir")) {
 
                 recognizer.deallocate();
