@@ -6,6 +6,8 @@ package PruebaTalking;
 
 import Posicionamiento.Controlador_Posicionamiento;
 import Reproductor.Reproductor;
+import envioMail.EnviarMail;
+import java.io.File;
 import javax.speech.*;
 
 import javax.speech.recognition.*;
@@ -95,7 +97,7 @@ public class Escucha extends ResultAdapter {
 
             }
 
-            if (gst.equals("Canario")) {//ESTE ES EL MODELO DE PRUEBA
+            if (gst.equals("Canario")) {//ESTE ES EL MODELO DE PRUEBA DE REPRODUCCION DE MUSICA
 
                 try {
                     rep.loadFile("D:/musica/bajofondo.mp3");
@@ -124,23 +126,48 @@ public class Escucha extends ResultAdapter {
             }
 
 
-            if (gst.equals("Reproductor")) {//ejecuta el windows media player, habria que probar que reprodujera un play list
+            if (gst.equals("Reproductor")) {//ejecuta el windows media player
 
 
                 try {
                     /* directorio/ejecutable es el path del ejecutable y un nombre */
                     reproduce = Runtime.getRuntime().exec("C:/Archivos de programa/Windows Media Player/mplayer2.exe");
+
                 } catch (Exception e) {
                     /* Se lanza una excepción si no se encuentra en ejecutable o el fichero no es ejecutable. */
                 }
 
             }
-            
-            if(gst.equals("Terminar Musica")){
-                
-                reproduce.destroy();//se cierra el proceso
-                
+
+            if (gst.equals("Escuchar Musica")) { //abre un archivo con el programa correspondiente, esto serviria para abrir un play list de musica
+
+                String cadena;
+                File fichero = new File("D:/2011.pdf");
+                cadena = fichero.getAbsolutePath();
+                try {
+                    Runtime rt = Runtime.getRuntime();
+                    String[] callAndArgs = {"C:/Archivos de programa/Adobe/Reader 9.0/Reader/AcroRd32.exe", cadena};
+                    Process child = rt.exec(callAndArgs);
+                } catch (Exception eee) {
+                    System.out.println("hubo error");
+                }
+
+
             }
+
+            if (gst.equals("Terminar Musica")) {
+
+                reproduce.destroy();//se cierra el proceso
+
+            }
+
+            if (gst.equals("Ayuda")) {
+
+                //envía correo
+                EnviarMail.main(args);
+
+            }
+
 
             if (gst.equals("salir")) {
 
