@@ -60,9 +60,15 @@ public class Escucha extends ResultAdapter {
                 Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
             }
             rep.play();
-                
-                
+                             
             }
+            
+            if (gst.equals("Hora")) {
+                
+                // instalar la clase Calendar, y hacerlo, habria que poner la 
+                //otra libreria que es de texto a voz para reproducir cadena de caracteres
+            }
+            
             if (gst.equals("salir")) {
 
                 recognizer.deallocate();
