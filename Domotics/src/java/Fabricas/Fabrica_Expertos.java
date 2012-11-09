@@ -9,6 +9,7 @@ import EnvioCorreos.Experto_Correos;
 import Experto.Experto;
 import Leer_Sensores.Experto_Leer_Sensores;
 import Mensajes.Experto_Mensajes;
+import Posicionamiento.Experto_Posicionamiento;
 import Sensores.Experto_Sensor;
 
 /**
@@ -42,6 +43,8 @@ public class Fabrica_Expertos {
                 return new Experto_Leer_Sensores();
             case Correos:
                 return new Experto_Correos();
+            case Posicionamiento:
+                return new Experto_Posicionamiento();
             default:
                 return null;
 

@@ -4,6 +4,8 @@
  */
 package PruebaTalking;
 
+import Posicionamiento.Controlador_Posicionamiento;
+import Reproductor.Reproductor;
 import javax.speech.*;
 
 import javax.speech.recognition.*;
@@ -11,6 +13,9 @@ import javax.speech.recognition.*;
 import java.io.FileReader;
 
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 /**
  *
@@ -24,6 +29,7 @@ public class Escucha extends ResultAdapter {
     @Override
     public void resultAccepted(ResultEvent re) {
 
+        Reproductor rep = new Reproductor();
         try {
 
             Result res = (Result) (re.getSource());
@@ -46,7 +52,18 @@ public class Escucha extends ResultAdapter {
 
             System.out.println();
 
-            if (gst.equals("cmop")) {
+            if (gst.equals("Musica")) {
+                
+                try {
+                rep.loadFile("D:/musica/bajofondo.mp3");
+            } catch (BasicPlayerException ex) {
+                Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rep.play();
+                
+                
+            }
+            if (gst.equals("salir")) {
 
                 recognizer.deallocate();
 
