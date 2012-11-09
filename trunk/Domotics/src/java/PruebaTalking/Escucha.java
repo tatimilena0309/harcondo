@@ -27,6 +27,7 @@ public class Escucha extends ResultAdapter {
 
     static Recognizer recognizer;
     String gst;
+    Process reproduce = null;
 
     @Override
     public void resultAccepted(ResultEvent re) {
@@ -57,6 +58,46 @@ public class Escucha extends ResultAdapter {
             if (gst.equals("Musica")) {
 
                 try {
+                    rep.loadFile("D:/sistema/locutor/tipomusica.mp3");
+                } catch (BasicPlayerException ex) {
+                    Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                rep.play();
+
+                if (gst.equals("Tango")) {
+
+                    try {
+                        rep.loadFile("D:/sistema/musica/tango.mp3");
+                    } catch (BasicPlayerException ex) {
+                        Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    rep.play();
+
+                } else if (gst.equals("Tecno")) {
+
+                    try {
+                        rep.loadFile("D:/sistema/musica/tecno.mp3");
+                    } catch (BasicPlayerException ex) {
+                        Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    rep.play();
+
+                } else if (gst.equals("Nacional")) {
+
+                    try {
+                        rep.loadFile("D:/sistema/musica/nacional.mp3");
+                    } catch (BasicPlayerException ex) {
+                        Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    rep.play();
+
+                }
+
+            }
+
+            if (gst.equals("Canario")) {//ESTE ES EL MODELO DE PRUEBA
+
+                try {
                     rep.loadFile("D:/musica/bajofondo.mp3");
                 } catch (BasicPlayerException ex) {
                     Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
@@ -85,23 +126,27 @@ public class Escucha extends ResultAdapter {
 
             if (gst.equals("Reproductor")) {//ejecuta el windows media player, habria que probar que reprodujera un play list
 
-                Process p = null;
+
                 try {
                     /* directorio/ejecutable es el path del ejecutable y un nombre */
-                    p = Runtime.getRuntime().exec("C:/Archivos de programa/Windows Media Player/mplayer2.exe");
+                    reproduce = Runtime.getRuntime().exec("C:/Archivos de programa/Windows Media Player/mplayer2.exe");
                 } catch (Exception e) {
                     /* Se lanza una excepción si no se encuentra en ejecutable o el fichero no es ejecutable. */
                 }
-                
-                p.destroy();//se cierra el proceso, yo pondria que si la persona dice: terminar musica, se ponga el p.destroy()
 
+            }
+            
+            if(gst.equals("Terminar Musica")){
+                
+                reproduce.destroy();//se cierra el proceso
+                
             }
 
             if (gst.equals("salir")) {
 
                 recognizer.deallocate();
 
-                args[0] = "Hasta la proxima Cmop!";
+                args[0] = "Hasta la proxima Clarita";
 
                 System.out.println(args[0]);
 
