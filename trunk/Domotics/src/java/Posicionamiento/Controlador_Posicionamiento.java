@@ -32,7 +32,7 @@ public class Controlador_Posicionamiento extends Controlador implements Observad
     public void notificarMovimiento(Ambiente ambiente, Sensor sensor) {
         //debo saber cual es el ambiente en el que esta entrando y buscar el mensaje que se carga
         
-        experto.notificarMovimiento(ambiente, sensor);
+       // experto.notificarMovimiento(ambiente, sensor);
         
     }
 }
