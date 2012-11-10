@@ -57,7 +57,7 @@ public class Escucha extends ResultAdapter {
 
             System.out.println();
 
-            if (gst.equals("Musica")) {
+            if (gst.equals("Escuchar Musica")) {
 
                 try {
                     rep.loadFile("D:/sistema/locutor/tipomusica.mp3");
@@ -65,42 +65,90 @@ public class Escucha extends ResultAdapter {
                     Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 rep.play();
+            }
+            if (gst.equals("Tecno")) {
 
-                if (gst.equals("Tango")) {
-
-                    try {
-                        rep.loadFile("D:/sistema/musica/tango.mp3");
-                    } catch (BasicPlayerException ex) {
-                        Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    rep.play();
-
-                } else if (gst.equals("Tecno")) {
-
-                    try {
-                        rep.loadFile("D:/sistema/musica/tecno.mp3");
-                    } catch (BasicPlayerException ex) {
-                        Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    rep.play();
-
-                } else if (gst.equals("Nacional")) {
-
-                    try {
-                        rep.loadFile("D:/sistema/musica/nacional.mp3");
-                    } catch (BasicPlayerException ex) {
-                        Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    rep.play();
-
+                String cadena;
+                File fichero = new File("D:/sistema/musica/tecno.M3U");
+                cadena = fichero.getAbsolutePath();
+                try {
+                    Runtime rt = Runtime.getRuntime();
+                    String[] callAndArgs = {"C:/Program Files/Winamp/winamp.exe", cadena};
+                    Process child = rt.exec(callAndArgs);
+                } catch (Exception eee) {
+                    System.out.println("hubo error");
                 }
+
+
+            } 
+            if (gst.equals("Instrumental")) {
+
+                String cadena;
+                File fichero = new File("D:/sistema/musica/instrumental.M3U");
+                cadena = fichero.getAbsolutePath();
+                try {
+                    Runtime rt = Runtime.getRuntime();
+                    String[] callAndArgs = {"C:/Program Files/Winamp/winamp.exe", cadena};
+                    Process child = rt.exec(callAndArgs);
+                } catch (Exception eee) {
+                    System.out.println("hubo error");
+                }
+
+
+            }
+            
+            if (gst.equals("Nacional")) {
+
+                String cadena;
+                File fichero = new File("D:/sistema/musica/nacional.M3U");
+                cadena = fichero.getAbsolutePath();
+                try {
+                    Runtime rt = Runtime.getRuntime();
+                    String[] callAndArgs = {"C:/Program Files/Winamp/winamp.exe", cadena};
+                    Process child = rt.exec(callAndArgs);
+                } catch (Exception eee) {
+                    System.out.println("hubo error");
+                }
+
+
+            }
+            
+            if (gst.equals("Cuarteto")) {
+
+                String cadena;
+                File fichero = new File("D:/sistema/musica/cuarteto.M3U");
+                cadena = fichero.getAbsolutePath();
+                try {
+                    Runtime rt = Runtime.getRuntime();
+                    String[] callAndArgs = {"C:/Program Files/Winamp/winamp.exe", cadena};
+                    Process child = rt.exec(callAndArgs);
+                } catch (Exception eee) {
+                    System.out.println("hubo error");
+                }
+
+
+            }
+            
+            
+            if (gst.equals("Canario")) {
+
+                try {
+                    rep.loadFile("D:/sistema/musica/Ambiente 2.mp3");
+                } catch (BasicPlayerException ex) {
+                    Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                rep.play();
+
+
 
             }
 
-            if (gst.equals("Canario")) {//ESTE ES EL MODELO DE PRUEBA DE REPRODUCCION DE MUSICA
+
+
+            if (gst.equals("Musica")) {//ESTE ES EL MODELO DE PRUEBA DE REPRODUCCION DE MUSICA
 
                 try {
-                    rep.loadFile("D:/musica/bajofondo.mp3");
+                    rep.loadFile("D:/sistema/musica/bajofondo.mp3");
                 } catch (BasicPlayerException ex) {
                     Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -131,7 +179,7 @@ public class Escucha extends ResultAdapter {
 
                 try {
                     /* directorio/ejecutable es el path del ejecutable y un nombre */
-                    reproduce = Runtime.getRuntime().exec("C:/Archivos de programa/Windows Media Player/mplayer2.exe");
+                    reproduce = Runtime.getRuntime().exec("C:/Program Files/Winamp/winamp.exe");
 
                 } catch (Exception e) {
                     /* Se lanza una excepción si no se encuentra en ejecutable o el fichero no es ejecutable. */
@@ -139,22 +187,7 @@ public class Escucha extends ResultAdapter {
 
             }
 
-            if (gst.equals("Escuchar Musica")) { //abre un archivo con el programa correspondiente, esto serviria para abrir un play list de musica
-
-                String cadena;
-                File fichero = new File("D:/2011.pdf");
-                cadena = fichero.getAbsolutePath();
-                try {
-                    Runtime rt = Runtime.getRuntime();
-                    String[] callAndArgs = {"C:/Archivos de programa/Adobe/Reader 9.0/Reader/AcroRd32.exe", cadena};
-                    Process child = rt.exec(callAndArgs);
-                } catch (Exception eee) {
-                    System.out.println("hubo error");
-                }
-
-
-            }
-
+            
             if (gst.equals("Terminar Musica")) {
 
                 reproduce.destroy();//se cierra el proceso
