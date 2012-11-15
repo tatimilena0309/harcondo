@@ -202,8 +202,7 @@ public class Escucha extends ResultAdapter {
             if (gst.equals("Terminar Musica")) {
 
                TerminarProceso.terminarMusica("AcroRd32");
-                
-
+               
             }
 
             if (gst.equals("Ayuda")) {
