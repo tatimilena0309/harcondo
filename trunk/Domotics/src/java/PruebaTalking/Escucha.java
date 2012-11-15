@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 
+
 /**
  *
  * @author eduardo
@@ -41,9 +42,7 @@ public class Escucha extends ResultAdapter {
     static Recognizer recognizer;
     String gst;
     Process reproduce = null;
-    Process repro = null;
-    Runtime rtt = Runtime.getRuntime();
-
+    
     @Override
     public void resultAccepted(ResultEvent re) {
 
@@ -194,40 +193,15 @@ public class Escucha extends ResultAdapter {
 
 
             if (gst.equals("Reproductor")) {//ejecuta el windows media player
-
-
-                try {
-                    /* directorio/ejecutable es el path del ejecutable y un nombre */
-                    reproduce = Runtime.getRuntime().exec("C:/Program Files/Winamp/winamp.exe");
-                   
-                    
-                    
-                    int con = 0;
-                    for (int i = 0; i < 1000000000; i++) {
-                        con = con + 1;
-                    }
-
-                    for (int i = 0; i < 1000000000; i++) {
-                        con = con + 1;
-                    }
-                     if (con == 2000000000) {
-                       System.out.println("son iguales");
-                     reproduce.destroy();
-                     }
-
-
-
-                } catch (Exception e) {
-                    /* Se lanza una excepción si no se encuentra en ejecutable o el fichero no es ejecutable. */
-                }
-
+                
+                reproduce = Runtime.getRuntime().exec("C:/Archivos de programa/Adobe/Reader 9.0/Reader/AcroRd32.exe");
+                
             }
 
 
             if (gst.equals("Terminar Musica")) {
 
-               System.exit(0);
-                reproduce.destroy();
+               TerminarProceso.terminarMusica("AcroRd32");
                 
 
             }
