@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package PruebaTalking;
+package SintetizadorDeVoz;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import java.io.IOException;
 public class TerminarProceso {
 
         
-    static void terminarMusica(String nombreProceso){
+    static void terminarProceso(String nombreProceso){
         
         String osName = System.getProperty("os.name");
         String system =  "";
@@ -35,13 +35,6 @@ public class TerminarProceso {
         } catch (InterruptedException e) {
             System.out.println("Incapaz de matar soffice.");
         }      
-        
-        
-    }
-    
-    static void terminarCamaras(String nombreProceso){
-        
-        
         
         
     }

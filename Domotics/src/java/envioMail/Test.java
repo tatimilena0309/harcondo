@@ -4,7 +4,7 @@
  */
 package envioMail;
 
-import PruebaTalking.TerminarProceso;
+import SintetizadorDeVoz.TerminarProceso;
 import Reproductor.Reproductor;
 import envioMail.EnviarMail;
 import java.io.File;

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package PruebaTalking;
+package SintetizadorDeVoz;
 
 import TextoAVoz.Lee;
 import Posicionamiento.Controlador_Posicionamiento;
@@ -25,7 +25,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 
-
 /**
  *
  * @author eduardo
@@ -42,7 +41,7 @@ public class Escucha extends ResultAdapter {
     static Recognizer recognizer;
     String gst;
     Process reproduce = null;
-    
+
     @Override
     public void resultAccepted(ResultEvent re) {
 
@@ -72,7 +71,7 @@ public class Escucha extends ResultAdapter {
             if (gst.equals("Escuchar Musica")) {
 
                 try {
-                    rep.loadFile("D:/sistema/locutor/tipomusica.mp3");
+                    rep.loadFile("D:/sistema/locutor/tipomusica.mp3");//poner una voz que diga que tipo de música desea escuchar
                 } catch (BasicPlayerException ex) {
                     Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -85,7 +84,7 @@ public class Escucha extends ResultAdapter {
                 cadena = fichero.getAbsolutePath();
                 try {
                     Runtime rt = Runtime.getRuntime();
-                    String[] callAndArgs = {"C:/Program Files/Winamp/winamp.exe", cadena};
+                    String[] callAndArgs = {"C:/Program Files/Windows Media Player/wmplayer.exe", cadena};
                     Process child = rt.exec(callAndArgs);
                 } catch (Exception eee) {
                     System.out.println("hubo error");
@@ -100,7 +99,7 @@ public class Escucha extends ResultAdapter {
                 cadena = fichero.getAbsolutePath();
                 try {
                     Runtime rt = Runtime.getRuntime();
-                    String[] callAndArgs = {"C:/Program Files/Winamp/winamp.exe", cadena};
+                    String[] callAndArgs = {"C:/Program Files/Windows Media Player/wmplayer.exe", cadena};
                     Process child = rt.exec(callAndArgs);
                 } catch (Exception eee) {
                     System.out.println("hubo error");
@@ -116,7 +115,7 @@ public class Escucha extends ResultAdapter {
                 cadena = fichero.getAbsolutePath();
                 try {
                     Runtime rt = Runtime.getRuntime();
-                    String[] callAndArgs = {"C:/Program Files/Winamp/winamp.exe", cadena};
+                    String[] callAndArgs = {"C:/Program Files/Windows Media Player/wmplayer.exe", cadena};
                     Process child = rt.exec(callAndArgs);
                 } catch (Exception eee) {
                     System.out.println("hubo error");
@@ -132,7 +131,7 @@ public class Escucha extends ResultAdapter {
                 cadena = fichero.getAbsolutePath();
                 try {
                     Runtime rt = Runtime.getRuntime();
-                    String[] callAndArgs = {"C:/Program Files/Winamp/winamp.exe", cadena};
+                    String[] callAndArgs = {"C:/Program Files/Windows Media Player/wmplayer.exe", cadena};
                     Process child = rt.exec(callAndArgs);
                 } catch (Exception eee) {
                     System.out.println("hubo error");
@@ -140,6 +139,44 @@ public class Escucha extends ResultAdapter {
 
 
             }
+
+            if (gst.equals("Musica en linea")) {
+
+                String cadena;
+                cadena = "http://www.sonicomusica.com/ar/";
+                System.out.println(cadena);
+                try {
+                    Runtime rt = Runtime.getRuntime();
+                    String[] callAndArgs = {"C:/Users/eduu/AppData/Local/Google/Chrome/Application/chrome.exe", cadena};
+                    Process child = rt.exec(callAndArgs);
+                } catch (Exception eee) {
+                    System.out.println("hubo error");
+                }
+            }
+            
+            if (gst.equals("Terminar Internet")) {
+
+                 System.out.println("internet finalizado");
+                TerminarProceso.terminarProceso("chrome");
+
+            }
+
+            if (gst.equals("Reproductor")) {//ejecuta el windows media player
+
+                System.out.println("musica finalizada");
+                reproduce = Runtime.getRuntime().exec("C:/Users/eduu/AppData/Local/Google/Chrome/Application/chrome.exe");
+
+            }
+
+
+            if (gst.equals("Cerrar")) {
+
+                System.out.println("musica finalizada");
+                TerminarProceso.terminarProceso("wmplayer");
+
+
+            }
+
 
 
             if (gst.equals("Canario")) {
@@ -192,18 +229,6 @@ public class Escucha extends ResultAdapter {
             }
 
 
-            if (gst.equals("Reproductor")) {//ejecuta el windows media player
-                
-                reproduce = Runtime.getRuntime().exec("C:/Archivos de programa/Adobe/Reader 9.0/Reader/AcroRd32.exe");
-                
-            }
-
-
-            if (gst.equals("Terminar Musica")) {
-
-               TerminarProceso.terminarMusica("AcroRd32");
-               
-            }
 
             if (gst.equals("Ayuda")) {
 
