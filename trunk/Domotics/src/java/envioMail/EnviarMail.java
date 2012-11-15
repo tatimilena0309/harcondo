@@ -4,10 +4,15 @@
  */
 package envioMail;
 
+import Posicionamiento.Controlador_Posicionamiento;
+import Reproductor.Reproductor;
 import javax.activation.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 public class EnviarMail {
 
@@ -20,10 +25,12 @@ public class EnviarMail {
 
 class SendAuthentication {
 
+     
     public static void Send() {
 
+        Reproductor rep = new Reproductor();
         String host = "smtp.gmail.com";//Suponiendo que el servidor SMTPsea la propia máquina
-        String from = "eduardomauriz@gmail.com";
+        String from = "proyectosistemas2012@gmail.com";
         String to = "eduardomauriz@gmail.com";
 
 
@@ -33,7 +40,7 @@ class SendAuthentication {
         prop.setProperty("mail.smtp.host", "smtp.gmail.com");
         prop.setProperty("mail.smtp.starttls.enable", "true");
         prop.setProperty("mail.smtp.port", "587");
-        prop.setProperty("mail.smtp.user", "eduardomauriz@gmail.com");
+        prop.setProperty("mail.smtp.user", "proyectosistemas2012@gmail.com");
         prop.setProperty("mail.smtp.auth", "true");
 
 
@@ -49,6 +56,12 @@ class SendAuthentication {
 
             Transport.send(msg);
             System.out.println("Mensaje enviado!");
+            try {
+                rep.loadFile("D:/sistema/locutor/Ambiente 1.mp3");//aca tengo que poner un archivo de audio que diga: El mensaje fue enviado a Hugo
+            } catch (BasicPlayerException ex) {
+                Logger.getLogger(Controlador_Posicionamiento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            rep.play();
 
         } catch (Exception e) {
 
@@ -63,9 +76,9 @@ class SendAuthentication {
         try {
 
             MimeMessage msg = new MimeMessage(session);
-            msg.setText("El mail desde java. Este mensaje a utilizado autenticacion en el servidor.");
+            msg.setText("Hugo necesito ayuda por favor!");
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            msg.setFrom(new InternetAddress(from, "JavaMail en accion"));
+            msg.setFrom(new InternetAddress(from, "CLARITA"));
             return msg;
 
         } catch (java.io.UnsupportedEncodingException ex) {
@@ -87,9 +100,9 @@ class SMTPAuthentication extends javax.mail.Authenticator {
 
     public PasswordAuthentication getPasswordAuthentication() {
 
-        String username = "eduardomauriz@gmail.com";
+        String username = "proyectosistemas2012@gmail.com";
 
-        String password = "30298400";
+        String password = "claritarobotina";
 
         return new PasswordAuthentication(username, password);
 

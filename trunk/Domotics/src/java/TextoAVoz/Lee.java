@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package PruebaTalking;
+package TextoAVoz;
 
 import javax.speech.*;
 
@@ -14,6 +14,12 @@ import java.util.*;
  *
  * @author edu
  */
+
+/*
+ * esta clase recibe una cadena de caracteres com argumento y dice con voz esa cadena como salida
+ * 
+ */
+
 public class Lee {
 
     public static void main(String[] args) {
@@ -32,7 +38,7 @@ public class Lee {
 
 
 
-            Voice voice = new Voice(null, Voice.GENDER_FEMALE, Voice.GENDER_FEMALE, null);
+            Voice voice = new Voice("kevin16", Voice.GENDER_MALE, Voice.GENDER_MALE, null);
 
 
 
