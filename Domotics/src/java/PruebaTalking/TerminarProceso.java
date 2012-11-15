@@ -39,5 +39,12 @@ public class TerminarProceso {
         
     }
     
+    static void terminarCamaras(String nombreProceso){
+        
+        
+        
+        
+    }
+    
     
 }
